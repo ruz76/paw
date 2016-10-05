@@ -14,9 +14,18 @@
 <body>
 <?php
 	echo "Ahoj Karle éíščížáíáčžéášč";
+	echo "<ol>";
 	for ($i=0; $i<10; $i++) {
-		echo $i." hhhhhh<br/>";
+		$pomi = $i + 1;
+		echo "<li>Odrážka č.".$pomi."</li>";
 	}
+	echo "</ol>";
+	
+	echo "<ol>";
+	for ($i=1; $i<11; $i++) {
+		echo "<li>Odrážka č.".$i."</li>";
+	}
+	echo "</ol>";
 ?>
 </body>
 </html>
