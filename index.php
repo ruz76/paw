@@ -12,20 +12,29 @@
 	        
 </head>
 <body>
+<form>
+	<p>
+	Počet:<input type="number" name="pocet" min="0" max="100" step="1" value="30">
+	Info:<input name="info" value="FFF"/>
+	Birthday (date and time): <input type="datetime-local" name="bdaytime">
+	<input type="radio" name="style" value="li" checked> Odrážka<br>
+	<input type="radio" name="style" value="p"> Odstavec<br>
+	<input type="submit"/>	
+	</p>
+</form>
 <?php
-	echo "Ahoj Karle éíščížáíáčžéášč";
+	echo $_REQUEST["style"];
+	echo "Ahoj Karle";
 	echo "<ol>";
-	for ($i=0; $i<10; $i++) {
-		$pomi = $i + 1;
-		echo "<li>Odrážka č.".$pomi."</li>";
+	for ($i=1; $i<=$_REQUEST["pocet"]; $i++) {
+		if ($_REQUEST["style"] == "li") {
+			echo "<li>Odrážka č.".$i." ".$_REQUEST["info"]."</li>";
+		} else {
+			echo "<p>Odstavec č.".$i." ".$_REQUEST["info"]."</p>";
+		}
 	}
-	echo "</ol>";
+	echo "</ol>";	
 	
-	echo "<ol>";
-	for ($i=1; $i<11; $i++) {
-		echo "<li>Odrážka č.".$i."</li>";
-	}
-	echo "</ol>";
 ?>
 </body>
 </html>
