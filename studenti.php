@@ -19,11 +19,7 @@
 	while(! feof($file))
 	{
 		$items = fgetcsv($file,0,";");
-		?><li><?php
-		?><a href="<?php echo $items[1];?>.php"><?php echo $items[2];?></li>
-		<?php
-		echo $items[2]."<br/>";
-		?></li>
+		?><li><a href="<?php echo $items[1];?>.php"><?php echo $items[2];?></a></li>
 		<?php
 		file_put_contents($items[1].".php", fopen("https://raw.githubusercontent.com/".$items[1]."/".$items[5]."/master/index.php", 'r'));
 	}
