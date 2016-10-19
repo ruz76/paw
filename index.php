@@ -20,7 +20,7 @@
 	<input type="radio" name="style" value="li" checked> Odrážka<br>
 	<input type="radio" name="style" value="p"> Odstavec<br>
 	<textarea name="text1" rows="20" cols="100">
-		Ostrava je pěkná díra. Vítejte v Ostravě.
+		Ostrava je pěkná díra. Vítejte v Ostravě. V Ostravě je pěkně. Ostravou táhnou šílené opice.
 	</textarea>
 	<input type="submit"/>	
 	</p>
@@ -38,23 +38,17 @@
 	echo "<p>".$pieces[1]."</p>"; // piece2
 	*/
 	
-	/*foreach ($pieces as $value) {
+	/*
+	foreach ($pieces as $value) {
 		echo "<p>".$value."</p>";
-	}*/
+	}
+	*/
 	
 	$ostrava = array("Ostrava", "Ostravě", "Ostravou"); 
 	
 	for ($i=0; $i<count($pieces); $i++) {
-		//echo "<p>".str_replace(".", "", $pieces[$i])."</p>";
-		//echo "<p>".str_replace(".", "", trim($pieces[$i], " \t\n"))."</p>";
-		//echo "<p>".strtr(trim($pieces[$i], ". \t\n"), ".", "")."</p>";
 		$word = trim($pieces[$i], ". \t\n");
 		$word = str_replace(".", "", $word);
-		//echo "<p>".trim($pieces[$i], ". \t\n")."</p>";
-		echo "<p>".$word."</p>";
-		/*if (in_array(str_replace(".", "", trim($pieces[$i], " \t\n")), $ostrava)) {
-			$pieces[$i] = "<strong>".$pieces[$i]."</strong>";
-		}*/
 		if (in_array($word, $ostrava)) {
 			$pieces[$i] = "<strong>".$pieces[$i]."</strong>";
 		}
