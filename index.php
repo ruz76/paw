@@ -19,12 +19,41 @@
 	Birthday (date and time): <input type="datetime-local" name="bdaytime">
 	<input type="radio" name="style" value="li" checked> Odrážka<br>
 	<input type="radio" name="style" value="p"> Odstavec<br>
+	<textarea name="text1" rows="20" cols="100">
+		Ostrava je pěkná díra. Vítejte v Ostravě.
+	</textarea>
 	<input type="submit"/>	
 	</p>
 </form>
 <?php
-	echo $_REQUEST["style"];
-	echo "Ahoj Karle";
+	echo "<h1>Ahoj Karle</h1>";
+	echo "<p>".$_REQUEST["text1"]."</p>";
+	
+	$pocet_znaku = strlen($_REQUEST["text1"]);
+	echo "<p>".$pocet_znaku."</p>";
+	
+	$pieces = explode(" ", $_REQUEST["text1"]);
+	echo "<p>".$pieces[0]."</p>"; // piece1
+	echo "<p>".$pieces[1]."</p>"; // piece2
+	
+	foreach ($pieces as $value) {
+		echo "<p>".$value."</p>";
+	}
+	
+	$ostrava = array("Ostrava", "Ostravě", "Ostravou"); 
+	
+	for ($i=0; $i<count($pieces); $i++) {
+		//echo "<p>".str_replace(".", "", $pieces[$i])."</p>";
+		echo "<p>".str_replace(".", "", trim($pieces[$i], " \t\n"))."</p>";
+		//echo "<p>".strtr(trim($pieces[$i], ". \t\n"), ".", "")."</p>";
+		if (in_array(str_replace(".", "", trim($pieces[$i], " \t\n")), $ostrava)) {
+			$pieces[$i] = "<strong>".$pieces[$i]."</strong>";
+		}
+	}
+	
+	$text1_strong_ostrava = implode(" ", $pieces);
+	echo "<p>".$text1_strong_ostrava."</p>";
+	/*
 	echo "<ol>";
 	for ($i=1; $i<=$_REQUEST["pocet"]; $i++) {
 		if ($_REQUEST["style"] == "li") {
@@ -34,7 +63,7 @@
 		}
 	}
 	echo "</ol>";	
-	
+	*/
 ?>
 </body>
 </html>
