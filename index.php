@@ -33,24 +33,32 @@
 	echo "<p>".$pocet_znaku."</p>";
 	
 	$pieces = explode(" ", $_REQUEST["text1"]);
+	/*
 	echo "<p>".$pieces[0]."</p>"; // piece1
 	echo "<p>".$pieces[1]."</p>"; // piece2
+	*/
 	
-	foreach ($pieces as $value) {
+	/*foreach ($pieces as $value) {
 		echo "<p>".$value."</p>";
-	}
+	}*/
 	
 	$ostrava = array("Ostrava", "Ostravě", "Ostravou"); 
 	
 	for ($i=0; $i<count($pieces); $i++) {
 		//echo "<p>".str_replace(".", "", $pieces[$i])."</p>";
-		echo "<p>".str_replace(".", "", trim($pieces[$i], " \t\n"))."</p>";
+		//echo "<p>".str_replace(".", "", trim($pieces[$i], " \t\n"))."</p>";
 		//echo "<p>".strtr(trim($pieces[$i], ". \t\n"), ".", "")."</p>";
-		if (in_array(str_replace(".", "", trim($pieces[$i], " \t\n")), $ostrava)) {
+		$word = trim($pieces[$i], ". \t\n");
+		$word = str_replace(".", "", $word);
+		//echo "<p>".trim($pieces[$i], ". \t\n")."</p>";
+		echo "<p>".$word."</p>";
+		/*if (in_array(str_replace(".", "", trim($pieces[$i], " \t\n")), $ostrava)) {
+			$pieces[$i] = "<strong>".$pieces[$i]."</strong>";
+		}*/
+		if (in_array($word, $ostrava)) {
 			$pieces[$i] = "<strong>".$pieces[$i]."</strong>";
 		}
 	}
-	
 	$text1_strong_ostrava = implode(" ", $pieces);
 	echo "<p>".$text1_strong_ostrava."</p>";
 	/*
