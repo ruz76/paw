@@ -66,7 +66,8 @@
 		if (in_array($word, $ostrava)) {
 			$sel++;
 			//$pieces[$i] = '<strong id="'.$sel.'">'.$pieces[$i].'</strong>';
-			$pieces[$i] = "<strong id=\"".$sel."\">".$pieces[$i]."</strong>";	
+			//$pieces[$i] = "<strong id=\"".$sel."\">".$pieces[$i]."</strong>";	
+			$pieces[$i] = "<strong id='".$sel."'>".$pieces[$i]."</strong>";	
 		}
 	}
 	$text1_strong_ostrava = implode(" ", $pieces);
