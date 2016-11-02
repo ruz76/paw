@@ -1,0 +1,42 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	
+	<title>Quick Start - Leaflet</title>
+
+	<meta charset="utf-8" />
+
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.1/dist/leaflet.css" />
+	<script src="https://unpkg.com/leaflet@1.0.1/dist/leaflet.js"></script>
+	<script src="http://gisak.vsb.cz/ruzicka/lib/leaflet/showplace.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script>
+	$(document).ready(function(){
+		
+		setMap('mapid');
+		$("#mapid").hide();
+		
+		$("strong").click(function(){
+			
+			$("#mapid").show();
+			
+			var lat = $(this).attr("lat");
+			var lon = $(this).attr("lon");
+			var zoom = $(this).attr("zoom");
+			var text = $(this).attr("text");
+			
+			showPlace(lat, lon, zoom, text);
+		});
+	});
+	</script>	
+	
+</head>
+<body>
+
+
+<p><strong lat="50.505" lon="16.09" zoom="10" text="Zde je <strong>Rtyně</strong>">Rtyně</strong> je divné místo.</p>
+<div id="mapid" style="width: 600px; height: 400px;"></div>
+
+</body>
+</html>
