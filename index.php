@@ -88,7 +88,9 @@
 			//$pieces[$i] = '<strong id="'.$sel.'">'.$pieces[$i].'</strong>';
 			//$pieces[$i] = "<strong id=\"".$sel."\">".$pieces[$i]."</strong>";	
 			//$pieces[$i] = "<strong id='".$sel."'>".$pieces[$i]."</strong>";	
-			$pieces[$i] = "<strong id=\"".$sel."\" lat=\"49.99\" lon=\"17.99\" zoom=\"12\" text=\"Tady je Ostrava".$sel."\">".$pieces[$i]."</strong>";	
+			//$pieces[$i] = "<strong id=\"".$sel."\" lat=\"49.89\" lon=\"18.02\" zoom=\"12\" text=\"Tady je Ostrava ".$sel."\">".$pieces[$i]."</strong>";	
+			$pieces[$i] = "<strong id=\"".$sel."\" lat=\"49.82\" lon=\"18.22\" zoom=\"12\" text=\"<p>Tady je Ostrava</p><p><img src=http://www.integritylife.org/sites/default/files/ostrava_1.jpg width=100></p><p>Pořadí v textu: ".$sel."</p>\">".$pieces[$i]."</strong>";	
+			
 		}
 	}
 	$text1_strong_ostrava = implode(" ", $pieces);
