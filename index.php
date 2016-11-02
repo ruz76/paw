@@ -10,11 +10,31 @@
 	<meta name="revisit-after" content="7 days">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.1/dist/leaflet.css" />
+	<script src="https://unpkg.com/leaflet@1.0.1/dist/leaflet.js"></script>
+	<script src="http://gisak.vsb.cz/ruzicka/lib/leaflet/showplace.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 	<script>
 	$(document).ready(function(){
+		/*
+		$("#1").hide();
 		$("#1").click(function(){
 			$(this).hide();
+		});
+		*/
+		setMap('mapid');
+		$("#mapid").hide();
+		
+		$("strong").click(function(){
+			
+			$("#mapid").show();
+			
+			var lat = $(this).attr("lat");
+			var lon = $(this).attr("lon");
+			var zoom = $(this).attr("zoom");
+			var text = $(this).attr("text");
+			
+			showPlace(lat, lon, zoom, text);
 		});
 	});
 	</script>	
@@ -28,7 +48,7 @@
 	<input type="radio" name="style" value="li" checked> Odrážka<br>
 	<input type="radio" name="style" value="p"> Odstavec<br>
 	<textarea name="text1" rows="10" cols="50">
-		Ostrava je pěkná díra. Vítejte v Ostravě.
+		Ostrava je pěkná díra. Vítejte v Ostravě. K Ostravě mám pěkný vztah.
 	</textarea>
 	<input type="submit"/>	
 	</p>
@@ -67,7 +87,8 @@
 			$sel++;
 			//$pieces[$i] = '<strong id="'.$sel.'">'.$pieces[$i].'</strong>';
 			//$pieces[$i] = "<strong id=\"".$sel."\">".$pieces[$i]."</strong>";	
-			$pieces[$i] = "<strong id='".$sel."'>".$pieces[$i]."</strong>";	
+			//$pieces[$i] = "<strong id='".$sel."'>".$pieces[$i]."</strong>";	
+			$pieces[$i] = "<strong id=\"".$sel."\" lat=\"49.99\" lon=\"17.99\" zoom=\"12\" text=\"Tady je Ostrava".$sel."\">".$pieces[$i]."</strong>";	
 		}
 	}
 	$text1_strong_ostrava = implode(" ", $pieces);
@@ -84,5 +105,8 @@
 	echo "</ol>";	
 	*/
 ?>
+
+<div id="mapid" style="width: 600px; height: 400px;"></div>
+
 </body>
 </html>
